@@ -107,7 +107,7 @@
 
                 var constraints = {
                     audio: false, video: {
-                        width: 800, height: 1280, facingMode: 'environment'
+                        width: 1180, height: 2020, facingMode: 'environment'
                     }
                 };
 
@@ -122,12 +122,12 @@
 
                 video.addEventListener('canplay', function (ev) {
                     if (!streaming) {
-                        height = 1024;
-                        width = 800;
+                        height = 2020;
+                        width = 1180;
 
                         if (isNaN(height)) {
-                            height = 1024;
-                            width = 800;
+                            height = 2020;
+                            width = 1180;
                         }
 
                         video.setAttribute('width', width);
