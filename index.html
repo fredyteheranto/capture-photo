@@ -100,7 +100,17 @@
             startbutton = document.getElementById('startbutton');
             select = document.getElementById('select');
 
-            var constraints = { audio: false, video: { width: 720, height: 1280,facingMode : 'environment' } };
+            var constraints = { audio: false, video: { width: {
+      min: 720,
+      ideal: 1080,
+      max: 1440
+    }, height: {
+      min: 1280,
+      ideal: 1920,
+      max: 2560,
+    },facingMode: {
+      exact: 'environment'
+    }} };
 
             navigator.mediaDevices.getUserMedia(constraints)
                 .then(function(stream) {
