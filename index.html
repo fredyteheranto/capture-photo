@@ -1,14 +1,12 @@
 <!doctype html>
 
-
 <head>
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <style>
         /* CSS comes here */
         #video {
             border: 1px solid black;
-            width: 710px !important;
-                height: 800px;
+            width: 100%;
+            height: auto;
         }
 
         #photo {
@@ -22,12 +20,12 @@
         }
 
         .camera {
-            width: 550px;
+            width: 340px;
             display: inline-block;
         }
 
         .output {
-            width: 550px;
+            width: 340px;
             display: inline-block;
         }
 
@@ -53,21 +51,17 @@
 
         @media only screen and (max-width: 700px) {
             #video {
-                width: 710px !important;
-                height: 800px;
+                width: 100% !important;
             }
 
             .camera {
-                width: 100%;
+                width: 550px;
             }
-            .output {
-            width: 100%;
-            display: inline-block;
-        }
-
         }
     </style>
     <title>Captura de foto LBZA</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
 </head>
 
 <body>
@@ -81,7 +75,7 @@
         <div><button id="startbutton">Capturar Imagen</button></div>
         <canvas id="canvas"></canvas>
         <div class="output">
-            <img id="photo" src="https://assets.materialup.com/uploads/df95f5e0-ae6b-4f12-998e-62d64890d2f6/preview.png"
+            <img id="photo" width="400" height="600" src="https://assets.materialup.com/uploads/df95f5e0-ae6b-4f12-998e-62d64890d2f6/preview.png"
                 alt="The screen capture will appear in this box.">
         </div>
     </div>
@@ -110,9 +104,10 @@
                 photo = document.getElementById('photo');
                 startbutton = document.getElementById('startbutton');
 
+
                 var constraints = {
                     audio: false, video: {
-                        width: 720, height: 1280, facingMode: 'environment'
+                        width: 800, height: 1280, facingMode: 'environment'
                     }
                 };
 
@@ -127,10 +122,12 @@
 
                 video.addEventListener('canplay', function (ev) {
                     if (!streaming) {
-                        height = video.videoHeight / (video.videoWidth / width);
+                        height = 1024;
+                        width = 800;
 
                         if (isNaN(height)) {
-                            height = width / (4 / 3);
+                            height = 1024;
+                            width = 800;
                         }
 
                         video.setAttribute('width', width);
