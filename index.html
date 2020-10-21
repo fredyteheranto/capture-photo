@@ -7,8 +7,8 @@
         /* CSS comes here */
         #video {
             border: 1px solid black;
-            width: 100%;
-            height: auto;
+            width: 710px !important;
+                height: 800px;
         }
 
         #photo {
@@ -53,8 +53,8 @@
 
         @media only screen and (max-width: 700px) {
             #video {
-                width: 100% !important;
-                height: 710px;
+                width: 710px !important;
+                height: 800px;
             }
 
             .camera {
@@ -112,9 +112,7 @@
 
                 var constraints = {
                     audio: false, video: {
-                        width: 720, height: 1280, facingMode: {
-                            exact: 'environment'
-                        }
+                        width: 720, height: 1280, facingMode: 'environment'
                     }
                 };
 
